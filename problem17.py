@@ -1,24 +1,40 @@
 import numpy as np
 singles = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen']
 tens = ['teen','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
-
+digits = ['','one','two','three','four','five','six','seven','eight','nine']
 
 
 def numberLength(number):
     length=0
     numberString = str(number)
-    print(numberString)
+    stringOfNumber = ''
     if len(numberString) == 1:
-        length = len(singles[number])
-    if len(str(number))==2:
+        stringOfNumber += singles[number]
+    if len(numberString)==2:
         try:
-            length = len(singles[number])
+            #see if its twelve eleven..
+            stringOfNumber +=singles[number]
         except:
-            print(tens[int(numberString[0])-1])
-            print(singles[int(numberString[1])-1])
-            length+= len(tens[int(numberString[0])-1])
-            length+= len(singles[int(numberString[1])-1])
-    return length
+            #if not decompose in first and second digit
+            stringOfNumber +=tens[(number//10)-1]
+            stringOfNumber +=digits[number%10]
+    if len(numberString) == 3:
+        stringOfNumber += digits[number//100] + 'hundred'
+        if number%100 !=0:
+            stringOfNumber+='and'
+            try:
+                # see if its twelve eleven..
+                stringOfNumber += singles[number%100]
+            except:
+                # if not decompose in first and second digit
+                stringOfNumber += tens[(number%100)//10 - 1]
+                stringOfNumber += digits[(number%100)%10]
+    if len(numberString) == 4:
+        stringOfNumber = 'one thousand'
+    print(number,stringOfNumber,len(stringOfNumber))
+    return len(stringOfNumber)
 
-
-print(numberLength(40))
+sum=0
+for i in range(1,101):
+    sum+=numberLength(i)
+print(sum)
