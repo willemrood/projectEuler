@@ -35,6 +35,8 @@ def numberLength(number):
     return len(stringOfNumber)
 
 sum=0
-for i in range(1,101):
+for j in range(10):
+
+for i in range(1,100):
     sum+=numberLength(i)
 print(sum)
