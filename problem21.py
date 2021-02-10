@@ -1,5 +1,7 @@
 #amicable pairs <3
+import time
 import numpy as np
+t0=time.time()
 def sumprop(n):
     sum=0
     for i in range(1,1+int(np.ceil(n/2))):
@@ -20,3 +22,5 @@ sum = 0
 for i in range(1,10000):
     sum+=i*amicable(i)
 print(sum)
+t1=time.time()
+print(t1-t0)
