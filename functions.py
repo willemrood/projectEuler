@@ -35,7 +35,9 @@ def ispalindrone(x):
                 state = True
     return state
 
-
+def properSum(n):
+    divisors = np.arange(2,1+n//2)
+    return np.sum(divisors*((n%divisors)==0))
 
 def tictoc(func):
     def wrapper(*args, **kwargs):
