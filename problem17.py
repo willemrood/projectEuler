@@ -1,4 +1,5 @@
 import numpy as np
+from functions import *
 singles = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
 tens = ['teen','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
 digits = ['','one','two','three','four','five','six','seven','eight','nine']
@@ -31,25 +32,12 @@ def numberLength(number):
                 stringOfNumber += digits[(number%100)%10]
     if len(numberString) == 4:
         stringOfNumber = 'onethousand'
-    print(number,stringOfNumber,len(stringOfNumber))
     return len(stringOfNumber)
 
-
-simpleSum = 0
-for i in range(1,1001):
-    simpleSum+=numberLength(i)
-
-# sum=0
-# for i in range(1,100):
-#     sum+=numberLength(i)
-#
-#
-# totalSum = sum
-# for i in range(9):
-#     totalSum += sum + 3*99+100*(7+len(singles[i+1]))
-# totalSum+=len('one thousand')
-
-
-print(simpleSum)
-# print(sum)
-# print(totalSum)
+@tictoc
+def stupidLoop(n):
+    sum = 0
+    for i in range(1,n+1):
+        sum+=numberLength(i)
+    return sum
+print(stupidLoop(1000))
