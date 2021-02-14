@@ -1,4 +1,6 @@
 import numpy as np
+import time
+
 def isprime(x):
     run = True
     state = False
@@ -34,3 +36,12 @@ def ispalindrone(x):
     return state
 
 
+
+def tictoc(func):
+    def wrapper(*args, **kwargs):
+        t0 = time.time()
+        result = func(*args, **kwargs)
+        functionname = str(func).split()
+        print('Function '+functionname[1]+ ' took {} seconds'.format( time.time() - t0))
+        return result
+    return wrapper

@@ -1,5 +1,5 @@
 import numpy as np
-singles = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen']
+singles = ['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
 tens = ['teen','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
 digits = ['','one','two','three','four','five','six','seven','eight','nine']
 
@@ -30,13 +30,26 @@ def numberLength(number):
                 stringOfNumber += tens[(number%100)//10 - 1]
                 stringOfNumber += digits[(number%100)%10]
     if len(numberString) == 4:
-        stringOfNumber = 'one thousand'
+        stringOfNumber = 'onethousand'
     print(number,stringOfNumber,len(stringOfNumber))
     return len(stringOfNumber)
 
-sum=0
-for j in range(10):
 
-for i in range(1,100):
-    sum+=numberLength(i)
-print(sum)
+simpleSum = 0
+for i in range(1,1001):
+    simpleSum+=numberLength(i)
+
+# sum=0
+# for i in range(1,100):
+#     sum+=numberLength(i)
+#
+#
+# totalSum = sum
+# for i in range(9):
+#     totalSum += sum + 3*99+100*(7+len(singles[i+1]))
+# totalSum+=len('one thousand')
+
+
+print(simpleSum)
+# print(sum)
+# print(totalSum)
