@@ -47,3 +47,15 @@ def tictoc(func):
         print('Function '+functionname[1]+ ' took {} seconds'.format( time.time() - t0))
         return result
     return wrapper
+
+def fibbo(n):
+    sequence = []
+    if type(n)==int:
+        sequence =[1,1]
+        for i in range(1,n-1):
+            sequence.append( sequence[-2]+sequence[-1])
+    if type(n) == list:
+        sequence = n
+        if len(sequence) >=2:
+            sequence.append( sequence[-2]+sequence[-1])
+    return sequence
