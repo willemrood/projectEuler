@@ -1,7 +1,12 @@
 import numpy as np
 limit = 100
-sequence = np.zeros((limit-1,limit-1))
+sequence = []
 for a in np.arange(2,limit+1):
     for b in np.arange(2,limit+1):
-        sequence[a-2,b-2] = a**b
+        sequence.append(a**b)
+sequence = np.array(sequence)
+sequence = np.sort(sequence)
+sequence = np.unique(sequence)
+print(sequence)
+print(len(sequence))
 

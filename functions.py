@@ -1,13 +1,13 @@
 import numpy as np
 import time
 
-def isprime(x):
+def isprime(x: int):
     run = True
     state = False
-    if x==1 or x==2:
+    if x == 2 or x == 3:
         run = False
         state = True
-    if x%2==0:
+    if x%2 == 0 and run:
         run = False
         state = False
     if run:
@@ -21,18 +21,12 @@ def isprime(x):
     return state
 
 def ispalindrone(x):
-    x = str(x)
-    state = False
-    run = False
-    if len(x)%2 == 0: #if it is even, it runs to check
-        run = True
-    if run:
-        length = len(x)//2
-        for i in range(length):
-            if x[i] != x[-1-i]: #if leftside is unequal to rightside, break and fail
-                break
-            if i == length-1: #if it manages to reach the end, it is a palindrone!
-                state = True
+    a = str(x)
+    b = a[::-1]
+    if a==b:
+        state = True
+    else:
+        state   = False
     return state
 
 def properSum(n):
