@@ -19,6 +19,12 @@ def isprime(x: int):
             if i == limit:
                 state = True
     return state
+def factorial(n):
+    numbers = range(1,n+1)
+    product=1
+    for i in numbers:
+        product=product*i
+    return product
 
 def ispalindrone(x):
     a = str(x)
@@ -26,12 +32,17 @@ def ispalindrone(x):
     if a==b:
         state = True
     else:
-        state   = False
+        state = False
     return state
 
 def properSum(n):
-    divisors = np.arange(2,1+n//2)
+    divisors = np.arange(1,1+n//2)
     return np.sum(divisors*((n%divisors)==0))
+def isAbundant(x):
+    if properSum(x)>x:
+        state=True
+    else: state=False
+    return state
 
 def tictoc(func):
     def wrapper(*args, **kwargs):
