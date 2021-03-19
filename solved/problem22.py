@@ -8,7 +8,7 @@ def name2sum(name):
         sum+=alp2num(letter)
     return sum
 
-with open('data/p022_names.txt','r') as f:
+with open('../data/p022_names.txt', 'r') as f:
     names = f.readlines()[0].split(sep=',')
 i=0
 for name in names:

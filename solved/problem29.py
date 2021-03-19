@@ -3,6 +3,8 @@ limit = 100
 sequence = []
 for a in np.arange(2,limit+1):
     for b in np.arange(2,limit+1):
+        a = float(a)
+        b=float(b)
         sequence.append(a**b)
 sequence = np.array(sequence)
 sequence = np.sort(sequence)

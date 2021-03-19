@@ -22,4 +22,4 @@ while count < 11:
                 count+=1
                 sum+=i
                 print(i,count,sum)
-    i+=1
+    i+=2

@@ -1,6 +1,16 @@
 import numpy as np
 import time
 
+def ispandigital(n):
+    state=False
+    if "0" not in (str(n)):
+        digits = []
+        for d in str(n):
+            digits.append(int(d))
+        if len(np.unique(digits))==len(str(n)) and np.max(digits)==len(str(n)):
+            state=True
+    return state
+
 def isprime(x: int):
     run = True
     state = False
@@ -35,12 +45,12 @@ def ispalindrone(x):
         state = False
     return state
 
-def properSum(n):
-    divisors = np.arange(1,1+n//2)
-    return np.sum(divisors*((n%divisors)==0))
-def isAbundant(x):
-    if properSum(x)>x:
-        state=True
+def properDivSum(n):
+    divisors = np.arange(1,n//2+1)
+    return np.sum(divisors*((n / divisors) % 1 == 0))
+
+def abundantNumber(n):
+    if properDivSum(n)>n: state=True
     else: state=False
     return state
 
@@ -63,4 +73,21 @@ def fibbo(n):
         sequence = n
         if len(sequence) >=2:
             sequence.append( sequence[-2]+sequence[-1])
+    return sequence
+
+def factorialDigits(n):
+    sum=0
+    for i in str(n):
+        sum+=factorial(int(i))
+    return sum
+
+def factorialLoop(n):
+    sequence = [n]
+    loop = True
+    while loop:
+        n = factorialDigits(n)
+        if n in sequence:
+            loop = False
+        else:
+            sequence.append(n)
     return sequence

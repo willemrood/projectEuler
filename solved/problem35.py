@@ -7,17 +7,16 @@ for i in range(9,int(1e6),2):
     if "2" not in str(i) and "5" not in str(i) and "0" not in str(i):
         if i not in all:
             if isprime(i):
-                primes = []
-                for perm in permutations(str(i)):
-                    number=""
-                    for p in perm:
-                       number+=p
+                primes = [i]
+                number = str(i)
+                for j in range(len(number)-1):
+                    number = number[-1]+number[:-1]
                     if isprime(int(number)):
                         primes.append(int(number))
                     else:
                         break
 
-                if len(primes)==factorial(len(str(i))):
+                if len(primes)==len(str(i)):
                     circular=True
                     print(i, primes)
                     for prime in primes:
