@@ -11,6 +11,14 @@ def ispandigital(n):
             state=True
     return state
 
+def romanvalue(stringofletters):
+    romans = ['I','V','X','L','C','D','M']
+    values = [1,5,10,50,100,500,1000]
+    value=0
+    for letter in stringofletters:
+        value+=values[np.where(romans==letter)]
+    return value
+
 def isprime(x: int):
     run = True
     state = False
