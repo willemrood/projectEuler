@@ -1,23 +1,22 @@
+import sys
+
 from    functions import *
-primes = []
-for i in range(100):
+import numpy as np
+from itertools import combinations, combinations_with_replacement
+prime_list = []
+for i in range(4000):
     if isprime(i):
-        primes.append(i)
-primes = np.array(primes)
-consec = 2
-search = True
-i = 1
+        prime_list.append(i)
 
-valid_numbers = []
-for start in range(10,100):
-    number=start
-
-    factors = number/primes
-    valid_factors = factors[factors%1==0]
-    numbers = number/valid_factors
-    for i in numbers:
-        factors = number / primes
-        valid_factors = factors[factors % 1 == 0]
-        if len(valid_factors)==0:
-            print(start,i,j)
-
+distinctions = 3
+offset = distinctions-1
+combos = np.array(list(combinations(prime_list,2)))
+products = np.prod(combos,axis=1)
+unique_products = np.unique(products)
+differences = unique_products[offset:] - unique_products[:-offset]
+i=0
+for difference in differences:
+    if difference==1:
+        print(differences[i], unique_products[i],unique_products[i+1])
+        sys.exit()
+    i+=1
